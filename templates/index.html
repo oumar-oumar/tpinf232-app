@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Collecte de données</title>
+   
+
+    <style>
+        body {
+    margin: 0;
+    font-family: Arial;
+    background: linear-gradient(135deg, #140f2a, #1e353b);
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    text-align: center;
+}
+
+        form {
+            background: rgba(255, 255, 255, 0.308);
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0);
+            width: 420px;
+            backdrop-filter: blur(10px);
+        }
+
+        input, select, button {
+            display: block;
+            margin: 10px 0;
+            padding: 8px;
+            width: 100%;
+        }
+
+       button {
+    padding: 12px;
+    border: none;
+    border-radius: 25px; /* 👈 arrondi */
+    font-size: 15px;
+    cursor: pointer;
+    transition: 0.3s;
+    color: rgba(255, 255, 255, 0);
+}
+
+button[type="submit"] {
+    background: #3b82f6;
+}
+
+#analyser {
+     background: #3b82f6;
+}
+
+button {
+    color: #ffffff !important;
+}
+
+button:hover {
+    transform: scale(1.05);
+    opacity: 0.9;
+    
+}
+
+        .back-btn {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            font-size: 20px;
+            text-decoration: none;
+             background: #3b82f6;
+            padding: 8px 12px;
+            border-radius: 50%;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+             }
+
+      .buttons {
+           display: flex;
+           gap: 10px;
+            }
+
+     .buttons button {
+          flex: 1;
+            }
+
+    </style>
+</head>
+
+<body>
+ <a href="/home" class="back-btn">⬅</a>
+<form id="form">
+    <h2>📊 Collecte de données</h2>
+
+    <input type="text" id="nom" placeholder="Nom" required>
+    <input type="number" id="age" placeholder="Âge" required>
+
+    <select id="sexe">
+        <option value="">Sexe</option>
+        <option value="M">Homme</option>
+        <option value="F">Femme</option>
+    </select>
+
+    <input type="text" id="ville" placeholder="Ville">
+    <input type="number" id="temps" placeholder="Temps téléphone (h)" required>
+
+    <div class="buttons">
+    <button type="submit">Envoyer</button>
+    <button type="button" id="analyser">Analyser</button>
+    </div>
+
+</form>
+<script>
+
+document.getElementById("form").addEventListener("submit", async (e) => {
+    e.preventDefault();
+
+    const data = {
+        nom: document.getElementById("nom").value,
+        age: document.getElementById("age").value,
+        sexe: document.getElementById("sexe").value,
+        ville: document.getElementById("ville").value,
+        temps: document.getElementById("temps").value
+    };
+console.log("ENVOI DONNÉES :", data);
+    await fetch("http://127.0.0.1:5000/add", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(data)
+    });
+
+    alert("Donnée envoyée !");
+});
+
+document.getElementById("analyser").addEventListener("click", () => {
+    window.location.href = "/dashboard";
+});
+
+</script>
+
+</body>
+</html>
