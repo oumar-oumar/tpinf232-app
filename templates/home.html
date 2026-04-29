@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Accueil - Data App</title>
+
+    <style>
+    body {
+    margin: 0;
+    font-family: Arial;
+    background: linear-gradient(135deg, #130f2a, #1e353b);
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    text-align: center;
+}
+
+        .box {
+    background: rgba(255, 255, 255, 0.24);
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0px 10px 30px rgba(0,0,0,0.5);
+    width: 400px;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255,255,255,0.1);
+}
+
+        h1 {
+            margin-bottom: 10px;
+        }
+
+        p {
+            font-size: 14px;
+            margin-bottom: 30px;
+        }
+
+        button {
+            display: block;
+            width: 100%;
+            padding: 12px;
+            margin: 10px 0;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        .btn1 {
+            background: #ffffff;
+            color: #2d6cdf;
+            font-weight: bold;
+        }
+
+        .btn2 {
+            background: #ffcc00;
+            color: black;
+            font-weight: bold;
+        }
+
+        .btn1:hover, .btn2:hover {
+            opacity: 0.8;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="box">
+
+    <h1>📊 Data Analysis App</h1>
+
+    <p>
+        Une application intelligente pour collecter, analyser et visualiser les données
+        avec des méthodes de Machine Learning simples.
+    </p>
+
+    <a href="http://127.0.0.1:5000/">
+    <button class="btn1">📝 Entrer les données</button>
+</a>
+
+<a href="/dashboard">
+    <button class="btn2">📈 Analyser les données</button>
+</a>
+
+</div>
+
+</body>
+</html>
