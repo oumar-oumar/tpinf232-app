@@ -33,14 +33,14 @@ init_db()
 # ----------------------------
 # PAGE D'ACCUEIL (PUB)
 # ----------------------------
-@app.route("/home")
+@app.route("/")
 def home_page():
     return render_template("home.html")
 
 # ----------------------------
 # PAGE COLLECTE
 # ----------------------------
-@app.route("/")
+@app.route("/Collecte")
 def collect_page():
     return render_template("index.html")
 
